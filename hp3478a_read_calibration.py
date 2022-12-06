@@ -15,7 +15,7 @@ def read_cal_data(hp3478a):
         hp3478a.write_raw(cmd)
         rvalue = ord(hp3478a.read()[0])
         assert rvalue >= 64 and rvalue < 80
-        cal_data.append(rvalue)
+        cal_data.append(rvalue-64)
     print()
 
     return cal_data
@@ -26,7 +26,7 @@ def print_cal_data(cal_data):
         if (addr % 16) == 0:
     	    print("%04x:" % addr, end='')
         print(" %02x" % cal_data[addr], end='')
-        s += chr(cal_data[addr])
+        s += chr(cal_data[addr]+64)
         if (addr % 16) == 15:
             print("  %s" % s)
             s = ""
@@ -37,7 +37,7 @@ def verify_checksum(cal_data):
     for entry in range(0,19):
         sum = 0
         for idx in range(0, 13):
-            val = cal_data[entry*13 + idx + 1]-64
+            val = cal_data[entry*13 + idx + 1]
             if idx!=11:
                 sum += val
             else:
