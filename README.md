@@ -3,7 +3,11 @@
 data of your multimeter!!! Make sure that you know what you're doing
 before using it!**
 
-Simple PyVISA script to dump the calibration data of an HP 3478A multimeter.
+Simple PyVISA scripts to dump and restore the calibration data of an HP 3478A multimeter.
+
+Check out my 
+[HP 3478A Multimeter Calibration Data Backup and Battery Replacement](https://tomverbeure.github.io/2022/12/02/HP3478A-Multimeter-Calibration-Data-Backup-and-Battery-Replacement.html)
+blog post for more info.
 
 To use, first install the linux-gpib kernel drivers, and install pyvisa and
 pyvisa-py as follows:
