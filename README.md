@@ -1,11 +1,16 @@
 
+**IMPORTANT: hp3478a_write_calibration.py will overwrite the calibration
+data of your multimeter!!! Make sure that you know what you're doing
+before using it!**
+
 Simple PyVISA script to dump the calibration data of an HP 3478A multimeter.
 
 To use, first install the linux-gpib kernel drivers, and install pyvisa and
 pyvisa-py as follows:
 
 ```sh
-pip3 isntall pyvisa pyvisa-py
+pip3 install pyvisa
+pip3 install pyvisa-py
 ```
 
 Then edit the `hp3478a_read_calibration.py` script to point to the correct VISA interface. The default
@@ -57,3 +62,7 @@ Checksum 18: 0xff  PASS (unused, FAIL is OK)
 
 Writing calibration data to 'hp3478a_cal_data.bin'.
 ```
+
+To restore the calibration data, just run `hp3478a_write_calibration.py`.
+
+Make sure that the CAL ENABLE switch on the front panel is set to ON.
