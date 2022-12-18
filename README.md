@@ -1,10 +1,14 @@
-
 # HP 3478A Calibration Data Read/Write
 
-Simple PyVISA scripts to dump the calibration data of an HP 3478A multimeter.
+**IMPORTANT: hp3478a_write_calibration.py will overwrite the calibration
+data of your multimeter!!! Make sure that you know what you're doing
+before using it!**
 
-This repo goes along with my 
-[HP 3478A Multimeter Calibration Data Backup and Battery Replacement](https://tomverbeure.github.io/2022/12/02/HP3478A-Multimeter-Calibration-Data-Backup-and-Battery-Replacement.html) blog post.
+Simple PyVISA scripts to dump and restore the calibration data of an HP 3478A multimeter.
+
+Check out my 
+[HP 3478A Multimeter Calibration Data Backup and Battery Replacement](https://tomverbeure.github.io/2022/12/02/HP3478A-Multimeter-Calibration-Data-Backup-and-Battery-Replacement.html) 
+blog post for more info.
 
 ## Raw pyvisa scripts
 
@@ -12,7 +16,8 @@ To use, first install the linux-gpib kernel drivers, and install pyvisa and
 pyvisa-py as follows:
 
 ```sh
-pip3 install pyvisa pyvisa-py
+pip3 install pyvisa
+pip3 install pyvisa-py
 ```
 
 Then edit the `hp3478a_read_calibration.py` script to point to the correct VISA interface. The default
@@ -70,6 +75,10 @@ On your HP 3478A, the calibration data will obviously be different...
 Note that in the printout above, each calibration value has an offset of 64. The
 actual RAM values go from 0 to 15, not from 64 to 79.
 
+To restore the calibration data, just run `hp3478a_write_calibration.py`.
+
+Make sure that the CAL ENABLE switch on the front panel is set to ON.
+
 ## pymeasure Example
 
 I added calibration data read/write functionality to [pymeasure](https://github.com/pymeasure/pymeasure).
@@ -83,6 +92,4 @@ run the script:
 ```sh
 pip3 install pymeasure
 ```
-
-
 
