@@ -16,7 +16,7 @@ pip3 isntall pyvisa pyvisa-py
 ```
 
 Then edit the `hp3478a_read_calibration.py` script to point to the correct VISA interface. The default
-script points to `GPIB0::7::INSTR`.
+script points to `GPIB::7`.
 
 On my machine, running the script results in the following:
 
@@ -64,6 +64,11 @@ Checksum 18: 0xff  PASS (unused, FAIL is OK)
 
 Writing calibration data to 'hp3478a_cal_data.bin'.
 ```
+
+On your HP 3478A, the calibration data will obviously be different...
+
+Note that in the printout above, each calibration value has an offset of 64. The
+actual RAM values go from 0 to 15, not from 64 to 79.
 
 ## pymeasure Example
 
