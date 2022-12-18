@@ -12,7 +12,7 @@ To use, first install the linux-gpib kernel drivers, and install pyvisa and
 pyvisa-py as follows:
 
 ```sh
-pip3 isntall pyvisa pyvisa-py
+pip3 install pyvisa pyvisa-py
 ```
 
 Then edit the `hp3478a_read_calibration.py` script to point to the correct VISA interface. The default
@@ -81,7 +81,7 @@ In addition to installing `pyvisa` and `pyvisa-py`, you also need to install `py
 run the script:
 
 ```sh
-pip3 isntall pymeasure
+pip3 install pymeasure
 ```
 
 
